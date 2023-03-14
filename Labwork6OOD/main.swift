@@ -1,11 +1,13 @@
-//
-//  main.swift
-//  Labwork6OOD
-//
-//  Created by Антон Смирнов on 14.03.2023.
-//
-
 import Foundation
 
-print("Hello, World!")
+func createChain() -> Handler {
+    let javaHandler = JavaHandler()
+    let swiftHandler = SwiftHandler()
+    javaHandler.next = swiftHandler
+    return javaHandler
+}
 
+let chain = createChain()
+print("Введите путь до файла: ")
+let path = readLine() ?? ""
+chain.handle(file: path)
