@@ -1,6 +1,8 @@
 import Foundation
 
 enum System {
+    
+    @discardableResult
     static func execute(command : String) -> String {
         let task = Process()
         let pipe = Pipe()
